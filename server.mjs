@@ -1,5 +1,5 @@
 import express from 'express';
-// import cors from 'cors';
+import cors from 'cors';
 import path from 'path';
 import authRouter from './routes/auth.mjs';
 import commentRouter from './routes/comment.mjs';
@@ -15,7 +15,7 @@ const __dirname = path.resolve();
 
 const app = express();
 app.use(express.json()); // body parser
-// app.use(cors())
+app.use(cors());
 
 // /api/v1/login
 app.use("/api/v1", authRouter);

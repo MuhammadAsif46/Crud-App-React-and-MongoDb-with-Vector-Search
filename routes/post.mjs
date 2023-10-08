@@ -2,13 +2,16 @@ import express from "express";
 import { nanoid } from "nanoid";
 import { client } from "./../mongodb.mjs";
 import { ObjectId } from "mongodb";
+// import OpenAI from "openai";
 
 const db = client.db("dbcrud"); // create database  // document base database
 const col = db.collection("posts"); // create collection
 
 let router = express.Router();
 
-
+// const openaiClient = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
 
 // POST    /api/v1/post
 router.post("/post", async (req, res, next) => {
