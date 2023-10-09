@@ -25,5 +25,5 @@ process.on("SIGINT", async function(){
 
 
 export const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: process.env.OPENAI_API_KEY,
 });
