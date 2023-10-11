@@ -44,16 +44,27 @@ div.main {
 }
 
 .postTitle{
-    border: 3px solid black;
+    border: 2px solid black;
     font-size: 15px;
     margin-top: 10px;
     height: 30px;
+    width: 12rem;
 }
 .postText{
-    border: 3px solid black;
+    border: 2px solid black;
     font-size: 15px;
     margin-top: 10px;
+    width: 12rem
 }
+
+.post-btn{
+    height: 2rem;
+    border-radius: 5px;
+    background-color: lightblue;
+    /* margin-right: 0.6rem; */
+    border: none; 
+}
+
 
 div.all-post{
     padding: 1rem;

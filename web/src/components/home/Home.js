@@ -171,7 +171,7 @@ export default function Home (){
                 ></textarea>
                 <br />
                 <br />
-                <button type="submit">Publish Post</button>
+                <button type="submit" className="post-btn">Publish Post</button>
                 <span>
                     {alert && alert }
                     {isLoading && "Loading...." }  
