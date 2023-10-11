@@ -1,7 +1,7 @@
 /* header section */
 
 div.header{
-    background-color:antiquewhite;
+    background-color:#0077b6;
     height: 2.8rem;
 }
 
@@ -14,12 +14,16 @@ div.header{
     margin-top: 0.5rem;
     height: 1.6rem;
     border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     border: none;
 }
 
 .search-btn{
     height: 1.6rem;
     border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     background-color: lightblue;
     margin-right: 0.6rem;
     border: none;
@@ -30,7 +34,7 @@ div.header{
 
 div.main {
     /* border: 1px solid black; */
-    background-color:aquamarine;
+    background-color:#48cae4;
     padding: 1rem 0;
     display: flex;
     justify-content: center;
@@ -75,18 +79,58 @@ div.all-post{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: cadetblue;
+    background-color: #90e0ef;
 }
 
 div.post{
-    border: 2px soild black;
-    background-color: skyblue;
+    background-color: #caf0f8;
     border-radius: 15px;
     box-shadow: 0px 0px 10px #000;
     padding: 0.8rem;
     margin: 1rem;
     width: 60%;
 }
+
+.edit-btn{
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: blue;
+    margin-right: 0.6rem;
+    border: none;
+    color: white;
+}
+
+.delete-btn{
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: red;
+    margin-right: 0.6rem;
+    border: none;
+    color: white;
+}
+
+.update-btn{
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: green;
+    margin-right: 0.6rem;
+    border: none;
+    color: white;
+}
+
+.cancel-btn{
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: gray;
+    margin-right: 0.6rem;
+    border: none;
+    color: white;
+}
+
 
 /* main section form card */
 

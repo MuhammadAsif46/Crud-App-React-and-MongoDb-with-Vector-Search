@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import "./Home.css";
+import swal from "sweetalert2"
 
 const baseUrl = "http://localhost:4001";
 
@@ -89,10 +90,13 @@ export default function Home() {
         text: postTextInputRef.current.value,
       });
 
+      
+
       setIsLoading(false);
       console.log(response.data);
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
+      
       // getAllPost();
     } catch (error) {
       // handle error
@@ -125,6 +129,43 @@ export default function Home() {
       console.log(error?.data);
       setIsLoading(false);
     }
+  };
+
+//   One Click Two function call
+
+  const mainFunction = (_id) =>{
+    deletePost(_id);
+  }
+
+
+// Sweet Alert Functions    
+  const publishPost = () => {
+    swal.fire("Success!", "Your Post have been Publish Thank you!", "success");
+  };
+
+  const deletePost = (_id) => {
+    swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            deletePostHandler(_id);
+          swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      });
+  };
+
+  const UpdateAlert = () => {
+    swal.fire("Success!", "Your Post have been Updated Thank you!", "success");
   };
 
   return (
@@ -175,7 +216,7 @@ export default function Home() {
             ></textarea>
             <br />
             <br />
-            <button type="submit" className="post-btn">
+            <button type="submit" className="post-btn" onClick={publishPost}>
               Publish Post
             </button>
             <span>
@@ -205,9 +246,9 @@ export default function Home() {
                   placeholder="body"
                 />
                 <br />
-                <button type="submit">Save</button>
+                <button type="submit" className="update-btn" onClick={UpdateAlert}>Update</button>
                 <button
-                  type="button"
+                  type="button" className="cancel-btn"
                   onClick={() => {
                     post.isEdit = false;
                     setAllPosts([...allPosts]);
@@ -222,7 +263,7 @@ export default function Home() {
                 <h2>{post.title}</h2>
                 <p>{post.text}</p>
                 <br />
-                <button
+                <button className="edit-btn"
                   onClick={(e) => {
                     allPosts[index].isEdit = true;
                     setAllPosts([...allPosts]);
@@ -231,9 +272,9 @@ export default function Home() {
                   Edit
                 </button>
 
-                <button
+                <button className="delete-btn" 
                   onClick={(e) => {
-                    deletePostHandler(post._id);
+                    mainFunction(post._id);
                   }}
                 >
                   Delete
