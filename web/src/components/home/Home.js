@@ -132,7 +132,17 @@ export default function Home (){
     }
 
     return (
-        <div className="home">
+        <div className="container">
+            <div className="header">
+                <form onSubmit={searchHandler} className="input-bar">
+                    <div >
+                        <input type="search" className="search-input" placeholder="Search..." ref={searchInputRef}/>
+                        <button type="submit" className="search-btn">Search</button>
+                    </div>
+                </form>
+            </div>
+            <br />
+            
             <form id="formReset" onSubmit={submitHandler}>
                 <label htmlFor="postTitleInput"> Post Title: </label>
                 <input 
@@ -167,10 +177,7 @@ export default function Home (){
             <hr />
             <br />
 
-            <form onSubmit={searchHandler} style={{textAlign: "right"}}>
-                <input type="search" placeholder="Search..." ref={searchInputRef}/>
-                <button type="submit" hidden></button>
-            </form>
+            
 
             <div className="all-post">
                 {
