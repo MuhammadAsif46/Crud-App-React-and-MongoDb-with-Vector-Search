@@ -141,10 +141,11 @@ export default function Home (){
                     </div>
                 </form>
             </div>
-            <br />
             
-            <form id="formReset" onSubmit={submitHandler}>
+            <div className="main">
+                <form id="formReset" onSubmit={submitHandler} className="form-card">
                 <label htmlFor="postTitleInput"> Post Title: </label>
+                <br />
                 <input 
                     id="postTitleInput" 
                     type="text" 
@@ -152,11 +153,13 @@ export default function Home (){
                     maxLength={20} 
                     ref={postTitleInputRef}
                     required
+                    className="postTitle"
                 />
                 <br />
                 <br />
 
-                <label htmlFor="postBodyInput"> Post Body: </label>
+                <label htmlFor="postBodyInput"> Post Text: </label>
+                <br />
                 <textarea 
                     id="postBodyInput" 
                     type="text" 
@@ -164,20 +167,17 @@ export default function Home (){
                     maxLength={999} 
                     ref={postTextInputRef}
                     required
+                    className="postText"
                 ></textarea>
                 <br />
                 <br />
-                <button type="submit">Publist Post</button>
+                <button type="submit">Publish Post</button>
                 <span>
                     {alert && alert }
                     {isLoading && "Loading...." }  
                 </span>
-            </form> 
-
-            <hr />
-            <br />
-
-            
+                </form>
+            </div>  
 
             <div className="all-post">
                 {
