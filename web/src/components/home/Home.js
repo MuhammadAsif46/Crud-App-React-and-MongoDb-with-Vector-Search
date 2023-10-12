@@ -155,15 +155,14 @@ export default function Home() {
           swal.fire({
             icon: "success",
             title: "Post Deleted",
-            showConfirmButton: false,
+            showConfirmButton: true,
           });
         } else {
           return swal.fire({
             icon: "error",
             title: "Invalid Password",
             text: "Please enter correct password",
-            timer: 1000,
-            showConfirmButton: false,
+            showConfirmButton: true,
           });
         }
       },
