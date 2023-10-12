@@ -1,5 +1,5 @@
 import express from 'express';
-import cors from 'cors';
+// import cors from 'cors';
 import path from 'path';
 
 import authRouter from './routes/auth.mjs';
@@ -8,13 +8,9 @@ import postRouter from './routes/post.mjs';
 
 const __dirname = path.resolve();
 
-//await: (means) response anay ka intizaar kro jb tak nhi ati agay nhi barhna 
-// not await: (means) direct chalo intizaar nhi krna
-
-
 const app = express();
 app.use(express.json()); // body parser
-app.use(cors());
+// app.use(cors());
 
 // /api/v1/login
 app.use("/api/v1", authRouter);
@@ -33,9 +29,9 @@ app.use("/api/v1", postRouter);
 
 
 //     /static/vscode_windows.exe
-app.use("/static", express.static(path.join(__dirname, 'static')))
+// app.use("/static", express.static(path.join(__dirname, 'static')))
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, './web/build')))
 
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
