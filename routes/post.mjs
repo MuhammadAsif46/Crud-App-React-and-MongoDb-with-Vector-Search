@@ -35,7 +35,7 @@ router.get('/search', async (req, res, next) => {
                   "knnBeta": {
                       "vector": vector,
                       "path": "embedding",
-                      "k": 10 // number of documents
+                      "k": 20 // number of documents
                   },
                   "scoreDetails": true
 
