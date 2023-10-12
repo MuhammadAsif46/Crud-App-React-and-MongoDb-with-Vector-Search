@@ -27,11 +27,11 @@ app.use((req, res, next) => { // bayriyar : yha sy agay na ja paye
 app.use("/api/v1", postRouter);
 
 
+app.use(express.static(path.join(__dirname, './web/build')))
 
 //     /static/vscode_windows.exe
 // app.use("/static", express.static(path.join(__dirname, 'static')))
 
-app.use(express.static(path.join(__dirname, './web/build')))
 
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
