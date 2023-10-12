@@ -168,6 +168,25 @@ export default function Home() {
     swal.fire("Success!", "Your Post have been Updated Thank you!", "success");
   };
 
+  const cancelPost = (post) => {
+    console.log("hello world");
+    swal.fire({
+        icon: 'warning',
+        title: 'Warning...',
+        text: 'Are You Sure!',  
+      }).then((result) => {
+        if (result.isConfirmed) {
+            post.isEdit = false;
+            setAllPosts([...allPosts]); 
+          swal.fire(
+            'success!',
+            'Your file has been saved.',
+            'success'
+          )
+        }
+      });   
+    }
+    
   return (
     <div className="container">
       <div className="header">
@@ -234,11 +253,12 @@ export default function Home() {
               <form onSubmit={editSaveSubmitHandler}>
                 <input value={post._id} type="text" disabled hidden />
                 <br />
-                <input
+                
+                {/* <input
                   defaultValue={post.title}
                   type="text"
                   placeholder="title"
-                />
+                /> */}
                 <br />
                 <textarea
                   defaultValue={post.text}
@@ -250,15 +270,13 @@ export default function Home() {
                 <button
                   type="button" className="cancel-btn"
                   onClick={() => {
-                    post.isEdit = false;
-                    setAllPosts([...allPosts]);
+                      cancelPost(post);
                   }}
                 >
                   Cancel
                 </button>
               </form>
             ) : (
-              // edit post form
               <div>
                 <h2>{post.title}</h2>
                 <p>{post.text}</p>
