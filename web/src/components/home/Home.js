@@ -70,7 +70,6 @@ export default function Home() {
 
       setIsLoading(false);
       console.log(response.data);
-      //   getAllPost();
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
       e.target.reset();
@@ -90,14 +89,11 @@ export default function Home() {
         text: postTextInputRef.current.value,
       });
 
-      
-
       setIsLoading(false);
       console.log(response.data);
       setAlert(response.data.message);
       setToggleRefresh(!toggleRefresh);
-      
-      // getAllPost();
+
     } catch (error) {
       // handle error
       console.log(error?.data);
@@ -123,7 +119,6 @@ export default function Home() {
       console.log(response.data);
       setAlert(response?.data?.message);
       setToggleRefresh(!toggleRefresh);
-      // getAllPost();
     } catch (error) {
       // handle error
       console.log(error?.data);
@@ -133,12 +128,13 @@ export default function Home() {
 
 //   One Click Two function call
 
-  const mainFunction = (_id) =>{
+  const deleteMainFunction = (_id) =>{
     deletePost(_id);
   }
 
 
-// Sweet Alert Functions    
+// Sweet Alert Functions:
+
   const publishPost = () => {
     swal.fire("Success!", "Your Post have been Publish Thank you!", "success");
   };
@@ -169,7 +165,7 @@ export default function Home() {
   };
 
   const cancelPost = (post) => {
-    console.log("hello world");
+    // console.log("check cancel post");
     swal.fire({
         icon: 'warning',
         title: 'Warning...',
@@ -191,7 +187,7 @@ export default function Home() {
     <div className="container">
       <div className="header">
         <form onSubmit={searchHandler} className="input-bar">
-          <div>
+          <div >
             <input
               type="search"
               className="search-input"
@@ -208,6 +204,7 @@ export default function Home() {
       <div className="main">
         <form id="formReset" onSubmit={submitHandler} className="form-card">
           <div className="form_value">
+            <div className="create-post">Create New Post</div>
             <label htmlFor="postTitleInput"> Post Title: </label>
             <br />
             <input
@@ -217,7 +214,7 @@ export default function Home() {
               maxLength={20}
               ref={postTitleInputRef}
               required
-              className="postTitle"
+              className="postTitle "
             />
             <br />
             <br />
@@ -250,20 +247,22 @@ export default function Home() {
         {allPosts.map((post, index) => (
           <div className="post" key={post._id}>
             {post.isEdit ? (
-              <form onSubmit={editSaveSubmitHandler}>
+              <form onSubmit={editSaveSubmitHandler} className="new">
                 <input value={post._id} type="text" disabled hidden />
                 <br />
-                
-                {/* <input
+                <div className="edit-post">Edit post</div>
+                <input
                   defaultValue={post.title}
                   type="text"
                   placeholder="title"
-                /> */}
+                  className="postEditTitle"
+                />
                 <br />
                 <textarea
                   defaultValue={post.text}
                   type="text"
                   placeholder="body"
+                  className="postEditText"
                 />
                 <br />
                 <button type="submit" className="update-btn" onClick={UpdateAlert}>Update</button>
@@ -292,7 +291,7 @@ export default function Home() {
 
                 <button className="delete-btn" 
                   onClick={(e) => {
-                    mainFunction(post._id);
+                    deleteMainFunction(post._id);
                   }}
                 >
                   Delete

@@ -1,3 +1,7 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* header section */
 
 div.header{
@@ -33,7 +37,6 @@ div.header{
 
 
 div.main {
-    /* border: 1px solid black; */
     background-color:#48cae4;
     padding: 1rem 0;
     display: flex;
@@ -47,7 +50,14 @@ div.main {
     padding: 0.9rem 1rem;
     border-radius: 10px;
     box-shadow: 0px 0px 10px #000;
-    width: 20rem;
+    width: 23rem;
+}
+div.create-post{
+    color: #0077b6;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
 }
 
 .postTitle{
@@ -68,7 +78,6 @@ div.main {
     height: 2rem;
     border-radius: 5px;
     background-color: lightblue;
-    /* margin-right: 0.6rem; */
     border: none; 
 }
 
@@ -117,6 +126,7 @@ div.post{
     border-radius: 5px;
     background-color: green;
     margin-right: 0.6rem;
+    margin-top: 0.5rem;
     border: none;
     color: white;
 }
@@ -131,6 +141,29 @@ div.post{
     color: white;
 }
 
+
+/* Edit btn classes style */
+
+.postEditTitle{
+    border: 2px solid black;
+    font-size: 15px;
+    margin-top: 0.8rem;
+    height: 1.8rem;
+    width: 12rem;
+}
+
+.postEditText{
+    border: 2px solid black;
+    font-size: 15px;
+    margin-top: 0.8rem;
+    width: 12rem;
+}
+
+div.edit-post{
+    color: #0077b6;
+    font-size: 30px;
+    font-weight: 700;
+}
 
 /* main section form card */
 
