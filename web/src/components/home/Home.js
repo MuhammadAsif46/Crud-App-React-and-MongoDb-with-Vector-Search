@@ -150,7 +150,7 @@ export default function Home() {
       confirmButtonColor: "#3a3659",
       showLoaderOnConfirm: true,
       preConfirm: (password) => {
-        if (password === "12345") {
+        if (password === "1122") {
           deletePostHandler(_id);
           swal.fire({
             icon: "success",
