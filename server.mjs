@@ -1,5 +1,5 @@
 import express from 'express';
-// import cors from 'cors';
+import cors from 'cors';
 import path from 'path';
 
 import authRouter from './routes/auth.mjs';
@@ -10,7 +10,7 @@ const __dirname = path.resolve();
 
 const app = express();
 app.use(express.json()); // body parser
-// app.use(cors());
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, './web/build')))
 
