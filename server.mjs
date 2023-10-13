@@ -12,6 +12,7 @@ const app = express();
 app.use(express.json()); // body parser
 // app.use(cors());
 
+app.use(express.static(path.join(__dirname, './web/build')))
 // /api/v1/login
 app.use("/api/v1", authRouter);
 
@@ -27,7 +28,6 @@ app.use((req, res, next) => { // bayriyar : yha sy agay na ja paye
 app.use("/api/v1", postRouter);
 
 
-app.use(express.static(path.join(__dirname, './web/build')))
 
 //     /static/vscode_windows.exe
 // app.use("/static", express.static(path.join(__dirname, 'static')))
