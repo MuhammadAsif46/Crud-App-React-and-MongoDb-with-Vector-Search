@@ -14,6 +14,22 @@ const openaiClient = new OpenAI({
 
 let router = express.Router();
 
+router.get("/posts", async (req, res, next) => {
+
+  const cursor = col.find({})
+  .sort({ _id: -1 })
+  .limit(100);
+
+
+  try {
+    let results = await cursor.toArray();
+    console.log("results: ", results);
+    res.send(results);
+  } catch (err) {
+    console.log(" error getting data mongodb : ", err);
+    res.status(500).send("server error, please try later..");
+  }
+});
 
 // search : /api/v1/search?q=car
 router.get('/search', async (req, res, next) => {
@@ -97,22 +113,6 @@ router.post("/post", async (req, res, next) => {
   }
 });
 // GET     /api/v1/posts
-router.get("/posts", async (req, res, next) => {
-
-  const cursor = col.find({})
-  .sort({ _id: -1 })
-  .limit(100);
-
-
-  try {
-    let results = await cursor.toArray();
-    console.log("results: ", results);
-    res.send(results);
-  } catch (err) {
-    console.log(" error getting data mongodb : ", err);
-    res.status(500).send("server error, please try later..");
-  }
-});
 
 // GET     /api/v1/post/:postId
 router.get("/post/:postId", async (req, res, next) => {
